@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+import sys; sys.stdout.reconfigure(encoding='utf-8')
 """
 TP-Link 路由器 CLI 工具
 用法:
