@@ -417,7 +417,10 @@ for h in router_devs:
         hostname = urllib.parse.unquote(hostname_raw) if hostname_raw else ""
         if not hostname or hostname in ("Anonymous", "unknown"):
             hostname = ""
-        ha_name = ha_map.get(mac.upper(), "")
+        if "匿名" in hostname or "unknown" in hostname.lower():
+            hostname = ""
+        lookup_key = mac.upper().replace("-", ":")
+        ha_name = ha_map.get(lookup_key, "")
         display_name = hostname or ha_name or "⚠️ 未知设备"
         cat = categorize(display_name, ip, mac)
         note = "★本机" if info.get("is_cur_host") == "1" else ""
