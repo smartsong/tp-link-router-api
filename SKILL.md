@@ -30,7 +30,7 @@ from router_api import TPLinkRouter
 router = TPLinkRouter(
     host="http://192.168.0.1",
     username="admin",
-    password="Smartsong771211"
+    password="你的路由器密码"
 )
 router.login()
 devices = router.get_devices()
@@ -43,7 +43,7 @@ print(router.format_devices(devices))
 |------|-----|
 | 地址 | `http://192.168.0.1` |
 | 用户名 | `admin` |
-| 密码 | `Smartsong771211` |
+| 密码 | ⚠️ 通过环境变量 `TP_PASS` 设置 |
 | LAN MAC | `9C-47-82-2E-57-72` |
 
 ## 可用命令

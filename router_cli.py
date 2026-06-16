@@ -18,12 +18,26 @@ import os
 
 # 尝试从同一目录导入 router_api
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+# 加载 .env 文件（如果存在）
+_env_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env")
+if os.path.exists(_env_file):
+    for line in open(_env_file):
+        line = line.strip()
+        if "=" in line and not line.startswith("#"):
+            k, v = line.split("=", 1)
+            os.environ.setdefault(k.strip(), v.strip())
 from router_api import TPLinkRouter, encode_password
 
 # 默认配置
+# 环境变量配置（生产环境推荐）
+# export TP_HOST=http://192.168.0.1
+# export TP_USER=admin
+# export TP_PASS=你的路由器密码
+
 DEFAULT_HOST = "http://192.168.0.1"
 DEFAULT_USER = "admin"
-DEFAULT_PASS = "Smartsong771211"
+DEFAULT_PASS = ""  # ⚠️ 请通过环境变量 TP_PASS 设置密码，或修改此处
 
 
 def get_router() -> TPLinkRouter:

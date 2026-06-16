@@ -44,7 +44,7 @@ def encode_password(password: str) -> str:
 class TPLinkRouter:
     """TP-Link 路由器 API 封装"""
 
-    def __init__(self, host: str = "http://192.168.0.1", username: str = "admin", password: str = "admin"):
+    def __init__(self, host: str = "http://192.168.0.1", username: str = "admin", password: str = ""):
         self.host = host.rstrip("/")
         self.username = username
         self.password = password

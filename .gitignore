@@ -1,0 +1,15 @@
+# 敏感信息
+.env
+.env.local
+*.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.eggs/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/

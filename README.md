@@ -13,20 +13,24 @@
 ## 快速开始
 
 ```bash
-# 安装依赖
+# 1. 安装依赖
 pip install requests
 
-# 查看在线设备
+# 2. 配置（复制并编辑）
+cp .env.example .env
+# 编辑 .env，填入你的路由器密码
+
+# 3. 使用
+python router_cli.py devices    # 查看设备列表
+python router_cli.py lan        # 查看LAN信息
+python router_cli.py all       # 查看所有信息
+python router_cli.py sys       # 系统信息
+
+# 或设置环境变量（无需 .env 文件）
+export TP_HOST=http://192.168.0.1
+export TP_USER=admin
+export TP_PASS=你的密码
 python router_cli.py devices
-
-# 查看详细信息
-python router_cli.py devices --detail
-
-# 查看 LAN 信息
-python router_cli.py lan
-
-# 查 WiFi 状态（部分型号）
-python router_cli.py wifi
 ```
 
 ---
